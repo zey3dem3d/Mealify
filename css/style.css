@@ -1,0 +1,754 @@
+/* Global */
+:root {
+  --h2Fonts: "Amatic SC", sans-serif;
+  --firstBackgroundLightColor: #fff;
+  --SecondBackgroundLightColor: #eeeeee;
+  --firstBackgrounDarkColor: #171717;
+  --SecondBackgroundDarkColor: #252525;
+  --mainLightColor: #ce1212;
+  --mainDarkColor: #c17e1f;
+  --blackColor: rgb(33, 37, 41);
+  --transitionDur: 0.5s;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d1d1d;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title-container {
+  text-align: center;
+  padding: 100px 0 50px 0;
+}
+
+.title-container h2.main-heading {
+  color: rgb(127, 127, 144);
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.title-container p.main-par,
+.title-container p.main-par span {
+  font-family: var(--h2Fonts);
+  font-size: 50px;
+}
+
+.title-container p.main-par span {
+  color: var(--mainLightColor);
+}
+/* -------------------------------------------- Navbar Section -------------------------------------------- */
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 25px 0;
+  gap: 0 150px;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.navBar .logo {
+  font-size: 30px;
+  font-weight: 700;
+  position: relative;
+}
+
+.logo::after {
+  content: ".";
+  position: absolute;
+  color: var(--mainLightColor);
+}
+
+.navBar .logo a {
+  color: var(--blackColor);
+}
+
+.navBar ul {
+  display: flex;
+}
+
+.navBar ul li a {
+  margin-right: 30px;
+  color: #7f7f90;
+  font-weight: 600;
+  position: relative;
+  transition: all var(--transitionDur);
+}
+
+.navBar ul li a::after {
+  content: "";
+  position: absolute;
+  background-color: var(--mainLightColor);
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: -10px;
+  transition: all var(--transitionDur);
+}
+
+.navBar ul li a:hover::after {
+  width: 100%;
+}
+
+.navBar ul li a:hover {
+  color: rgb(0, 0, 0);
+}
+
+.navBar .darkLightBtn a {
+  font-weight: 900;
+  font-size: 25px;
+  color: var(--blackColor);
+  padding-right: 30px;
+}
+
+.navBar .bars {
+  display: none;
+}
+
+@media all and (max-width: 1200px) {
+  .navBar .bars {
+    display: inline;
+  }
+
+  .navBar {
+    overflow: hidden;
+  }
+  .navBar ul {
+    position: absolute;
+    right: -100px;
+    flex-direction: column;
+    gap: 25px 0;
+    transition: all var(--transitionDur);
+  }
+
+  /* .menu-container:hover .links ul {
+    right: 0;
+  } */
+}
+
+/* -------------------------------------------- Home Section -------------------------------------------- */
+.home {
+  background-color: var(--SecondBackgroundLightColor);
+  display: flex;
+  height: 87vh;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.home .caption {
+  width: 30%;
+}
+
+.home .caption .icon {
+  width: 1.4375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  margin-right: 0.3125rem;
+  position: relative;
+}
+
+.video-btn {
+  display: flex;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: rgb(33, 37, 41);
+  text-decoration: none;
+  gap: 10px;
+  font-size: 16px;
+  white-space: nowrap;
+  transition: all var(--transitionDur);
+}
+
+.home .caption .icon i {
+  font-size: 1rem;
+  border: 15px solid #fff;
+  border-radius: 50%;
+  z-index: 1000;
+  background-color: #fff;
+}
+
+.home .caption .icon::after {
+  content: "";
+  position: absolute;
+  left: -33px;
+  top: 7px;
+  width: 60px;
+  height: 30px;
+  border-radius: 100px 100px 0 0;
+  transform: rotate(-90deg);
+  background-color: var(--mainLightColor);
+  z-index: 0;
+}
+
+.home .caption .links {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.home .caption .links .video-btn:hover {
+  color: var(--mainLightColor);
+}
+
+.home .caption h2 {
+  font-family: var(--h2Fonts);
+  font-weight: 700;
+  font-size: 65px;
+  color: rgb(55, 55, 63);
+}
+
+.home .caption p {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(79, 79, 90);
+  margin: 25px 0;
+}
+
+.home .caption a.book {
+  color: var(--firstBackgroundLightColor);
+  padding: 15px 30px;
+  background-color: var(--mainLightColor);
+  font-size: 15px;
+  border-radius: 0 50px 50px 50px;
+  transition: all var(--transitionDur);
+}
+
+.home .caption a.book:hover {
+  background-color: #e61414;
+}
+
+.home .image {
+  width: 35%;
+}
+
+.home img {
+  width: 100%;
+  filter: drop-shadow(4px 4px 9px #000a);
+}
+
+.home img:hover {
+  animation: vibration 0.9s infinite;
+}
+@media all and (max-width: 992px) {
+  .home .image {
+    width: 100%;
+  }
+
+  .home .caption {
+    /* width: 100%; */
+  }
+}
+
+/* -------------------------------------------- Chefs Section -------------------------------------------- */
+.chefs .boxes {
+  display: flex;
+  justify-content: center;
+  gap: 0 30px;
+  margin-bottom: 100px;
+}
+
+.chefs .boxes .box {
+  position: relative;
+  width: 27%;
+  text-align: center;
+  box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transitionDur);
+  overflow: hidden;
+}
+
+.chefs .boxes .box ul {
+  position: absolute;
+  padding: 0;
+  top: 30px;
+  right: -50px;
+  border-radius: 5px;
+  padding: 10px 0;
+  background-color: #fff4;
+  transition: right 300ms 0.3s;
+}
+
+.chefs .boxes .box ul li {
+  font-size: 18px;
+  padding: 8px 15px;
+}
+
+.chefs .boxes .box ul li i {
+  color: #37373f66;
+  transition: color var(--transitionDur);
+}
+
+.chefs .boxes .box ul li i:hover {
+  color: #37373fe6;
+}
+
+.chefs .boxes .box:hover {
+  transform: scale(1.07);
+}
+
+.chefs .boxes .box:hover ul {
+  right: 10px;
+}
+
+.chefs .boxes .image {
+  position: relative;
+}
+
+.chefs .boxes .box .image::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url("../images/team-shape.svg");
+  background-repeat: repeat-x;
+  width: 100%;
+  height: 60px;
+  z-index: 100;
+}
+
+.chefs .boxes .box img {
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+
+.chefs .boxes .box .caption {
+  padding: 15px;
+}
+
+.chefs .boxes .box .caption p,
+span {
+  color: rgb(127, 127, 144);
+}
+
+.chefs .boxes .box .caption span {
+  display: block;
+  margin: 10px;
+  font-size: 15px;
+}
+
+.chefs .boxes .box .caption p {
+  font-style: italic;
+}
+
+/* -------------------------------------------- gallery Section -------------------------------------------- */
+
+.gallery {
+  background-color: #eeeeee;
+  padding-bottom: 100px;
+}
+
+.gallery .boxes {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 0 30px;
+  flex-wrap: wrap;
+  height: 1165px;
+}
+
+.gallery .boxes .box {
+  width: 28%;
+  border: 4px solid var(--firstBackgroundLightColor);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery .boxes .box .caption p {
+  color: rgb(221, 221, 221);
+  width: 90%;
+}
+
+.gallery .boxes .box:hover img {
+  transform: scale(1.1);
+}
+
+.gallery .boxes .box:hover .caption {
+  bottom: 0;
+}
+
+.gallery .boxes img {
+  width: 100%;
+  display: block;
+  transition: all var(--transitionDur);
+}
+
+.gallery .boxes .box .caption {
+  background-color: #00000096;
+  color: var(--firstBackgroundLightColor);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  bottom: -700px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  transition: all var(--transitionDur);
+}
+
+/* -------------------------------------------- Contact Section -------------------------------------------- */
+
+.contact {
+  width: 90%;
+  margin: 0 auto 100px auto;
+}
+
+.contact .map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+}
+
+.contact iframe {
+  border: 0;
+  width: 98%;
+  height: 350px;
+}
+
+.contact .boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact .boxes .box {
+  display: flex;
+  margin: 5px;
+  align-items: center;
+  width: 49%;
+  background-color: #f5f5f5;
+  padding: 25px;
+}
+
+.contact .boxes .box .icon i {
+  background-color: var(--mainLightColor);
+  color: var(--firstBackgroundLightColor);
+  padding: 15px;
+  margin-right: 15px;
+  border-radius: 50%;
+}
+
+.contact .boxes .box .caption p,
+a {
+  color: rgb(33, 37, 41);
+}
+
+.contact .boxes .box .caption p span {
+  font-weight: 700;
+  color: rgb(33, 37, 41);
+}
+
+.contact .boxes .box .caption h3 {
+  color: #7d7d7d;
+  font-size: 20px;
+}
+
+/* --------- Form --------- */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 10px;
+  margin-top: 20px;
+  padding: 25px;
+  box-shadow: 0 0 1.875rem #00000014;
+}
+
+.contact input {
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.contact form :is(input, textarea) {
+  padding: 15px 15px;
+  font-family: inherit;
+  line-height: 1.5;
+  border: 2px solid hsl(0, calc(0% + 10%), calc(100% - 10%));
+  color: #212529;
+  transition: border-color var(--transitionDur);
+}
+
+.contact form textarea {
+  height: 200px;
+}
+
+.contact form .txt-eml .text,
+.email {
+  width: 49.4%;
+  height: 50px;
+  border: 2px solid #e8e3e3;
+}
+
+.contact .subject,
+textarea {
+  width: 100%;
+  height: 50px;
+  border: 2px solid #e8e3e3;
+}
+
+.contact input.text:focus,
+.contact input.email:focus,
+.contact input.subject:focus,
+.contact textarea:focus {
+  border: 2px solid #ce1212;
+  outline: none;
+  box-shadow: none;
+}
+
+.contact form button {
+  border: none;
+  background-color: var(--mainLightColor);
+  padding: 15px 50px;
+  margin: auto;
+  border-radius: 30px;
+  color: var(--firstBackgroundLightColor);
+  width: fit-content;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color var(--transitionDur);
+}
+
+/* ----------------------------------------------------- Subscribe  ------------------------------------------------------ */
+
+.subscribe {
+  position: relative;
+  background-image: linear-gradient(#0009, #0009),
+    url("../images/textured-metal-background.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  color: var(--firstBackgroundLightColor);
+  gap: 40px;
+  padding: 40px 0;
+  justify-content: center;
+}
+
+/* ---------------------- Caption One ---------------------- */
+.subscribe .caption-one {
+  width: 20%;
+}
+
+.subscribe .caption-one .image-logo {
+  display: flex;
+  gap: 0 10px;
+}
+
+.subscribe .caption-one .image-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.subscribe .caption-one .image-logo h2 {
+  font-size: 30px;
+}
+
+.subscribe .caption h3 {
+  position: relative;
+  text-align: center;
+  padding: 20px 0 30px 0;
+  font-family: "Inter", sans-serif;
+}
+
+.subscribe .caption p {
+  padding: 10px 0 0 0;
+}
+
+.subscribe .caption .icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.subscribe .caption h3::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #5a595a;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+}
+
+.subscribe .caption .icons a i {
+  color: #fff;
+  font-size: 24px;
+}
+
+/* ---------------------- Caption Two ---------------------- */
+
+.subscribe .caption-two {
+  width: 42%;
+}
+
+.subscribe .caption-two .quick-links .links ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+}
+.subscribe .caption-two .quick-links .links ul li {
+  position: relative;
+  width: 45%;
+  padding: 5px;
+  transition: all var(--transitionDur);
+}
+
+.subscribe .caption-two .quick-links .links ul li:hover {
+  transform: translate(10px);
+  background-color: #222;
+}
+
+.subscribe .caption-two .quick-links .links ul li a {
+  color: #fff;
+}
+
+.subscribe .caption-two .quick-links .links ul li i {
+  padding-right: 10px;
+}
+
+.subscribe .caption-two .quick-links h3 {
+  padding: 10px 0;
+}
+
+.subscribe .caption-two p {
+  padding: 15px 0;
+}
+
+.subscribe .caption-two form input {
+  width: 75%;
+}
+
+.subscribe .caption-two form button {
+  border: none;
+  padding: 14px 20px;
+  background-color: var(--mainLightColor);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: all var(--transitionDur);
+}
+
+.subscribe .caption-two form button:hover {
+  background-color: #e51414;
+}
+
+.subscribe .caption-two form input:focus {
+  outline: none;
+}
+
+.subscribe form :is(input) {
+  padding: 10px 15px;
+  line-height: 1.5;
+  border: 2px solid hsl(0, calc(0% + 10%), calc(100% - 10%));
+  color: #212529;
+  transition: border-color var(--transitionDur);
+}
+
+/* ---------------------- Caption Three ---------------------- */
+
+.subscribe .caption-three {
+  width: 20%;
+}
+
+.subscribe .caption-three ul {
+  padding: 0;
+  padding-top: 10px;
+}
+
+.subscribe .caption-three ul li {
+  padding-top: 10px;
+}
+
+.subscribe .caption-three ul li i {
+  color: var(--mainLightColor);
+  font-size: 22px;
+  padding-right: 10px;
+}
+
+/* ----------------------------------------------------- Keyframes  ------------------------------------------------------ */
+
+@keyframes vibration {
+  0% {
+    transform: rotate(0deg) translate(0px);
+  }
+  10% {
+    transform: rotate(-1deg) translate(-1px);
+  }
+  20% {
+    transform: rotate(1deg) translate(-2px);
+  }
+  30% {
+    transform: rotate(0deg) translate(-3px);
+  }
+  40% {
+    transform: rotate(1deg) translate(0px);
+  }
+  50% {
+    transform: rotate(-1deg) translate(1px);
+  }
+  60% {
+    transform: rotate(0deg) translate(2px);
+  }
+  70% {
+    transform: rotate(-1deg) translate(3px);
+  }
+  80% {
+    transform: rotate(1deg) translate(0px);
+  }
+  90% {
+    transform: rotate(0deg) translate(-1px);
+  }
+  100% {
+    transform: rotate(-1deg) translate(-2px);
+  }
+}
+
+/* :root :has(#dark:target) .home {
+  color: red;
+} */
